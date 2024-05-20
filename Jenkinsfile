@@ -15,16 +15,16 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerHubCredentialss', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     bat 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                    bat 'docker tag teedy-image drinkwatertwice/teedy:teedy-image'
-                    bat 'docker push drinkwatertwice/teedy:teedy-image'
+                    bat 'docker tag teedy-image dragon12112528/teedy:teedy-image'
+                    bat 'docker push dragon12112528/teedy:teedy-image'
                 }
             }
         }
         stage('run container') {
             steps {
-                bat 'docker run -d -p 8081:8080 --name teedy-container1 drinkwatertwice/teedy:teedy-image'
-                bat 'docker run -d -p 8082:8080 --name teedy-container2 drinkwatertwice/teedy:teedy-image'
-                bat 'docker run -d -p 8083:8080 --name teedy-container3 drinkwatertwice/teedy:teedy-image'
+                bat 'docker run -d -p 8081:8080 --name teedy-container1 dragon12112528/teedy:teedy-image'
+                bat 'docker run -d -p 8082:8080 --name teedy-container2 dragon12112528/teedy:teedy-image'
+                bat 'docker run -d -p 8083:8080 --name teedy-container3 dragon12112528/teedy:teedy-image'
             }
         }
     }
