@@ -13,13 +13,11 @@ pipeline {
         }
         stage('upload image') {
             steps {
-                {
                     bat 'docker login -u dragon12112528 -p AaLOL123456'
                     bat 'docker tag teedy-image dragon12112528/teedy:teedy-image'
                     bat 'docker push dragon12112528/teedy:teedy-image'
                 }
             }
-        }
         stage('run container') {
             steps {
                 bat 'docker run -d -p 8081:8080 --name teedy-container1 dragon12112528/teedy:teedy-image'
