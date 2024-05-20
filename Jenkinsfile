@@ -13,8 +13,8 @@ pipeline {
         }
         stage('upload image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerHubCredentialsss', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    bat 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                {
+                    bat 'docker login -u dragon12112528 -p AaLOL123456'
                     bat 'docker tag teedy-image dragon12112528/teedy:teedy-image'
                     bat 'docker push dragon12112528/teedy:teedy-image'
                 }
